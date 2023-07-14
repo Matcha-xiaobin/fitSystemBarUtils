@@ -8,6 +8,9 @@
 
 可以实现软键盘弹起时，平滑的推起底部的输入框哦！(比微信还丝滑)
 
+## Demo录屏gif:
+![Demo](gif/screen.gif "Demo录屏gif")
+
 ## 在项目中引用
 
 ### Gradle
