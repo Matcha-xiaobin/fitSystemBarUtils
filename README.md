@@ -10,6 +10,7 @@
 
 ## Demo录屏gif:
 ![image](gif/screen.gif)
+<img src="gif/screen.gif" width="400px" >
 
 ## 在项目中引用
 
