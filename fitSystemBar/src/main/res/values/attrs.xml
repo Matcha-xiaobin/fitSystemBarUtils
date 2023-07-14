@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FitSystemBarFrameLayout">
+        <attr name="fs_fitSystemStart" />
+        <attr name="fs_fitSystemTop" />
+        <attr name="fs_fitSystemEnd" />
+        <attr name="fs_fitSystemBottom" />
+        <attr name="fs_safeCutOutPadding" />
+        <attr name="fs_smoothPadding" />
+        <attr name="fs_debug" />
+    </declare-styleable>
+
+    <declare-styleable name="FitSystemBarLinearLayout">
+        <attr name="fs_fitSystemStart" />
+        <attr name="fs_fitSystemTop" />
+        <attr name="fs_fitSystemEnd" />
+        <attr name="fs_fitSystemBottom" />
+        <attr name="fs_safeCutOutPadding" />
+        <attr name="fs_smoothPadding" />
+        <attr name="fs_debug" />
+    </declare-styleable>
+
+    <declare-styleable name="FitSystemBarConstraintLayout">
+        <attr name="fs_fitSystemStart" />
+        <attr name="fs_fitSystemTop" />
+        <attr name="fs_fitSystemEnd" />
+        <attr name="fs_fitSystemBottom" />
+        <attr name="fs_safeCutOutPadding" />
+        <attr name="fs_smoothPadding" />
+        <attr name="fs_debug" />
+    </declare-styleable>
+
+    <attr name="fs_fitSystemStart" format="boolean" />
+    <attr name="fs_fitSystemTop" format="boolean" />
+    <attr name="fs_fitSystemEnd" format="boolean" />
+    <attr name="fs_fitSystemBottom" format="boolean" />
+    <attr name="fs_safeCutOutPadding" format="boolean" />
+    <attr name="fs_smoothPadding" format="boolean" />
+    <attr name="fs_debug" format="boolean" />
+</resources>
