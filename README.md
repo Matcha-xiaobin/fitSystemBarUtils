@@ -1,5 +1,6 @@
 # FitSystemBarUtils
 
+[![](https://jitpack.io/v/Matcha-xiaobin/fitSystemBarUtils.svg)](https://jitpack.io/#Matcha-xiaobin/fitSystemBarUtils)
 
 沉浸式状态栏，一个自动处理WindowInsets和cutOut的工具，一行代码 给任意view绑定。
 你还在苦恼布局中背景图需要上到状态栏或者虚拟导航键下面，却写不好其他控件的布局吗？
