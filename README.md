@@ -54,6 +54,14 @@ Step 2. Add the dependency
         }
     }
 
+获取这个View已绑定的FitSystemBarHelper对象
+    
+    view.fitSystemBarHelper()
+
+取消绑定
+
+    view.fitSystemBarHelper()?.destory()
+
 ### 使用DataBinding在xml中使用
 每个属性的默认值为false
 是否处理Start方向的
