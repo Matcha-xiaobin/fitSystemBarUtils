@@ -30,7 +30,7 @@ Step 2. Add the dependency
 
     dependencies {
         //Tag用上面的Jitpack版本代替
-        implementation 'com.github.Matcha-xiaobin:fitSystemBarUtils:Tag'
+        implementation 'com.github.Matcha-xiaobin:fitSystemBarUtils:1.0.1'
     }
 
 ### 在代码中使用：
