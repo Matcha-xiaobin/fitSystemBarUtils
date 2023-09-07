@@ -167,7 +167,7 @@ class FitSystemBarHelper(
             )
         }
         view.setTag(R.id.fit_system_helper, this@FitSystemBarHelper)
-        view.fitsSystemWindows = true
+        view.fitsSystemWindows = false
         //不带平滑变化的
         ViewCompat.setOnApplyWindowInsetsListener(view) { view: View, insets: WindowInsetsCompat ->
             //当正在平滑填充时，不做处理，否则你会看到这个view在反复弹跳
