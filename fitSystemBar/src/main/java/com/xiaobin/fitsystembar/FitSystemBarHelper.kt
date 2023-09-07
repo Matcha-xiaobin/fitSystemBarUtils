@@ -1,7 +1,5 @@
 package com.xiaobin.fitsystembar
 
-import android.os.Build
-import android.os.Build.VERSION_CODES
 import android.util.Log
 import android.view.View
 import android.view.View.OnAttachStateChangeListener
@@ -223,34 +221,33 @@ class FitSystemBarHelper(
         var cutoutPaddingRight = 0
         var cutoutPaddingBottom = 0
 
-        val systemWindowInsetLeft: Int
-        val systemWindowInsetTop: Int
-        val systemWindowInsetRight: Int
-        val systemWindowInsetBottom: Int
+        var systemWindowInsetLeft = 0
+        var systemWindowInsetTop = 0
+        var systemWindowInsetRight = 0
+        var systemWindowInsetBottom = 0
 
-        if (Build.VERSION.SDK_INT > VERSION_CODES.P) {
-            if (safeCutOutPadding) {
-                insetsCompat.displayCutout?.let {
-                    cutoutPaddingTop = it.safeInsetTop
-                    cutoutPaddingLeft = it.safeInsetLeft
-                    cutoutPaddingRight = it.safeInsetRight
-                    cutoutPaddingBottom = it.safeInsetBottom
-                }
+        if (safeCutOutPadding) {
+            insetsCompat.displayCutout?.let {
+                cutoutPaddingTop = it.safeInsetTop
+                cutoutPaddingLeft = it.safeInsetLeft
+                cutoutPaddingRight = it.safeInsetRight
+                cutoutPaddingBottom = it.safeInsetBottom
             }
         }
-        if (Build.VERSION.SDK_INT > VERSION_CODES.R) {
-            val systemBars = insetsCompat.getInsets(WindowInsetsCompat.Type.systemBars())
-            val ime = insetsCompat.getInsets(WindowInsetsCompat.Type.ime())
-            val maxInsets = androidx.core.graphics.Insets.max(ime, systemBars)
-            systemWindowInsetLeft = systemBars.left
-            systemWindowInsetRight = systemBars.right
+        val systemBars = insetsCompat.getInsets(
+            WindowInsetsCompat.Type.ime()
+                    or WindowInsetsCompat.Type.systemBars()
+        )
+        systemWindowInsetLeft = systemBars.left
+        systemWindowInsetRight = systemBars.right
+
+        if (insetsCompat.isVisible(WindowInsetsCompat.Type.ime())
+            || insetsCompat.isVisible(WindowInsetsCompat.Type.navigationBars())
+        ) {
+            systemWindowInsetBottom = systemBars.bottom
+        }
+        if (insetsCompat.isVisible(WindowInsetsCompat.Type.statusBars())) {
             systemWindowInsetTop = systemBars.top
-            systemWindowInsetBottom = maxInsets.bottom
-        } else {
-            systemWindowInsetLeft = insetsCompat.systemWindowInsetLeft
-            systemWindowInsetRight = insetsCompat.systemWindowInsetRight
-            systemWindowInsetTop = insetsCompat.systemWindowInsetTop
-            systemWindowInsetBottom = insetsCompat.systemWindowInsetBottom
         }
 
         if (callBack.invoke(Orientation.Top)) {
@@ -277,19 +274,23 @@ class FitSystemBarHelper(
             }
         }
         initialPadding.applyToView(view)
+        log(
+            "处理Insets后的padding: " +
+                    "Start: " + initialPadding.start + ", " +
+                    "Top: " + initialPadding.top + ", " +
+                    "End: " + initialPadding.end + ", " +
+                    "Bottom: " + initialPadding.bottom + "\n" +
+                    "Insets的padding: " +
+                    "Left: " + systemWindowInsetLeft + ", " +
+                    "Top: " + systemWindowInsetTop + ", " +
+                    "Right: " + systemWindowInsetRight + ", " +
+                    "Bottom: " + systemWindowInsetBottom
+        )
+    }
+
+    private fun log(content: String) {
         if (debug) {
-            Log.d(
-                TAG, "处理Insets后的padding: " +
-                        "Start: " + initialPadding.start + ", " +
-                        "Top: " + initialPadding.top + ", " +
-                        "End: " + initialPadding.end + ", " +
-                        "Bottom: " + initialPadding.bottom + "\n" +
-                        "Insets的padding: " +
-                        "Left: " + systemWindowInsetLeft + ", " +
-                        "Top: " + systemWindowInsetTop + ", " +
-                        "Right: " + systemWindowInsetRight + ", " +
-                        "Bottom: " + systemWindowInsetBottom
-            )
+            Log.d(TAG, "log: $content")
         }
     }
 
