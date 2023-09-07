@@ -71,7 +71,6 @@ open class FitSystemBarLinearLayout @JvmOverloads constructor(
     }
 
     init {
-        fitsSystemWindows = true
         attrs?.let {
             val a = getContext().obtainStyledAttributes(attrs, R.styleable.FitSystemBarLinearLayout)
             if (a.hasValue(R.styleable.FitSystemBarLinearLayout_fs_fitSystemTop)) {
@@ -122,7 +121,7 @@ open class FitSystemBarLinearLayout @JvmOverloads constructor(
      * fitsSystemWindow will be used.
      */
     private fun shouldApplyWindowInsetPadding(paddingInsetFlag: Boolean?): Boolean {
-        return paddingInsetFlag ?: ViewCompat.getFitsSystemWindows(this)
+        return paddingInsetFlag ?: true
     }
 
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
