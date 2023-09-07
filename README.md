@@ -32,6 +32,10 @@ Step 2. Add the dependency
         implementation 'com.github.Matcha-xiaobin:fitSystemBarUtils:1.0.2'
     }
 
+### 目前BUG：
+突然发现在Android 10系统上出现了系统栏明明隐藏了，高度却没有变成0的问题，android 11+似乎没问题。
+未完全测试。
+
 ### 在代码中使用：
 这个工具本质是把系统分发的insets属性拿出来用了一下，可以参考下google的 BottomNavigationView 底部导航 的代码，里面也用到了这个原理。
 注意：如果你不知道这个时干啥用的，建议下载demo看看实际效果是不是你需要的效果
