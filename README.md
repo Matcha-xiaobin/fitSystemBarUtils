@@ -29,8 +29,7 @@ Step 2. Add the dependency
 [![](https://jitpack.io/v/Matcha-xiaobin/fitSystemBarUtils.svg)](https://jitpack.io/#Matcha-xiaobin/fitSystemBarUtils)
 
     dependencies {
-        //Tag用上面的Jitpack版本代替
-        implementation 'com.github.Matcha-xiaobin:fitSystemBarUtils:1.0.1'
+        implementation 'com.github.Matcha-xiaobin:fitSystemBarUtils:1.0.2'
     }
 
 ### 在代码中使用：
