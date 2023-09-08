@@ -10,6 +10,7 @@ import androidx.core.view.WindowInsetsControllerCompat
 import androidx.databinding.DataBindingUtil
 import com.xiaobin.fitsystembar.FitSystemBarHelper
 import com.xiaobin.fitsystembar.FitSystemBarHelper.Companion.fitSystemBarHelper
+import com.xiaobin.fitsystembar.setSystemBarTheme
 import com.xiaobin.fitsystembar.showNavigationBar
 import com.xiaobin.fitsystembar.showStatusBar
 import com.xiaobin.fitsystembar.showSystemBar
@@ -103,6 +104,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        window.setSystemBarTheme(false, false)
         //沉浸式状态栏
         WindowCompat.setDecorFitsSystemWindows(window, false)
         val insetsController = WindowCompat.getInsetsController(window, window.decorView)

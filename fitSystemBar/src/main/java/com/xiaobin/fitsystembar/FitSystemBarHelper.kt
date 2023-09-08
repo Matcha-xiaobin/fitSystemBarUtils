@@ -1,6 +1,5 @@
 package com.xiaobin.fitsystembar
 
-import android.app.Activity
 import android.os.Build
 import android.util.Log
 import android.view.View
@@ -8,7 +7,6 @@ import android.view.View.OnAttachStateChangeListener
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsAnimationCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.WindowInsetsControllerCompat
 import androidx.databinding.BindingAdapter
 import kotlin.math.max
 
