@@ -44,172 +44,179 @@
 
         </com.xiaobin.fitsystembar.custom.FitStatusBarFrameLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/content"
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@id/navigationBar"
-            app:layout_constraintTop_toBottomOf="@id/titleBar">
+            app:layout_constraintTop_toBottomOf="@id/titleBar"
+            android:fillViewport="true"
+            android:layout_height="0dp">
 
-            <View
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/content"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginVertical="12dp"
-                android:background="#159595"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintBottom_toTopOf="@id/navigationBar"
+                app:layout_constraintTop_toBottomOf="@id/titleBar">
 
-            <RadioGroup
-                android:id="@+id/ll_buttons"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal"
-                app:layout_constrainedWidth="true"
-                app:layout_constraintBottom_toTopOf="@id/ll_buttons2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginVertical="12dp"
+                    android:background="#159595"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <RadioButton
-                    android:id="@+id/btn_systemCutOut"
+                <RadioGroup
+                    android:id="@+id/ll_buttons"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="12dp"
-                    android:checked="true"
-                    android:text="处理挖孔屏"
-                    android:textColor="@color/white" />
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintBottom_toTopOf="@id/ll_buttons2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
 
-                <RadioButton
-                    android:id="@+id/btn_systemNoCutOut"
+                    <RadioButton
+                        android:id="@+id/btn_systemCutOut"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:checked="true"
+                        android:text="处理挖孔屏"
+                        android:textColor="@color/white" />
+
+                    <RadioButton
+                        android:id="@+id/btn_systemNoCutOut"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="不处理挖孔屏"
+                        android:textColor="@color/white" />
+
+                </RadioGroup>
+
+                <RadioGroup
+                    android:id="@+id/ll_buttons2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="不处理挖孔屏"
-                    android:textColor="@color/white" />
+                    android:layout_marginBottom="6dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintBottom_toTopOf="@id/tv_tips"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
 
-            </RadioGroup>
+                    <RadioButton
+                        android:id="@+id/btn_smoothPadding"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:checked="true"
+                        android:text="启用平滑填充"
+                        android:textColor="@color/white" />
 
-            <RadioGroup
-                android:id="@+id/ll_buttons2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal"
-                app:layout_constrainedWidth="true"
-                app:layout_constraintBottom_toTopOf="@id/tv_tips"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
+                    <RadioButton
+                        android:id="@+id/btn_noSmoothPadding"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="禁用平滑填充"
+                        android:textColor="@color/white" />
 
-                <RadioButton
-                    android:id="@+id/btn_smoothPadding"
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/tv_tips"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="12dp"
-                    android:checked="true"
-                    android:text="启用平滑填充"
-                    android:textColor="@color/white" />
+                    android:layout_marginBottom="6dp"
+                    android:text="点击下方按钮查看效果"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@id/ll_buttons3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-                <RadioButton
-                    android:id="@+id/btn_noSmoothPadding"
+
+                <LinearLayout
+                    android:id="@+id/ll_buttons3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="禁用平滑填充"
-                    android:textColor="@color/white" />
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintBottom_toTopOf="@id/ll_buttons4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
 
-            </RadioGroup>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_systemBarShow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="显示系统栏" />
 
-            <TextView
-                android:id="@+id/tv_tips"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:text="点击下方按钮查看效果"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toTopOf="@id/ll_buttons3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_systemBarHide"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="隐藏系统栏" />
 
+                </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/ll_buttons3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal"
-                app:layout_constrainedWidth="true"
-                app:layout_constraintBottom_toTopOf="@id/ll_buttons4"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_systemBarShow"
+                <LinearLayout
+                    android:id="@+id/ll_buttons4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="显示系统栏" />
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintBottom_toTopOf="@id/ll_buttons5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_systemBarHide"
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_statusBarShow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="显示状态栏" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_statusBarHide"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="隐藏状态栏" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_buttons5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="隐藏系统栏" />
+                    android:layout_marginBottom="24dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
 
-            </LinearLayout>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_naviBarShow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="显示导航栏" />
 
-            <LinearLayout
-                android:id="@+id/ll_buttons4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal"
-                app:layout_constrainedWidth="true"
-                app:layout_constraintBottom_toTopOf="@id/ll_buttons5"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_naviBarHide"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="隐藏导航栏" />
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_statusBarShow"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="显示状态栏" />
+                </LinearLayout>
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_statusBarHide"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="隐藏状态栏" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ll_buttons5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal"
-                app:layout_constrainedWidth="true"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_naviBarShow"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="显示导航栏" />
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_naviBarHide"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="隐藏导航栏" />
-
-            </LinearLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
 
         <com.xiaobin.fitsystembar.custom.FitNavigationBarLinearLayout
             android:id="@+id/navigationBar"

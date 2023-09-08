@@ -177,32 +177,33 @@ class FitSystemBarHelper(
             formatInsets(insets, RelativePadding(initialPadding))
             insets
         }
-        //带平滑变化的
-        ViewCompat.setWindowInsetsAnimationCallback(
-            view,
-            object : WindowInsetsAnimationCompat.Callback(DISPATCH_MODE_CONTINUE_ON_SUBTREE) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            //带平滑变化的,虽然ViewCompat中帮我们实现了低于 R 的版本也能走动画，但实际上存在一些问题，所以干脆禁用好了
+            ViewCompat.setWindowInsetsAnimationCallback(
+                view,
+                object : WindowInsetsAnimationCompat.Callback(DISPATCH_MODE_CONTINUE_ON_SUBTREE) {
 
-                override fun onProgress(
-                    insets: WindowInsetsCompat,
-                    runningAnimations: List<WindowInsetsAnimationCompat>
-                ): WindowInsetsCompat {
-                    if (smoothPadding) {
-                        formatInsets(insets, RelativePadding(initialPadding))
+                    override fun onProgress(
+                        insets: WindowInsetsCompat,
+                        runningAnimations: List<WindowInsetsAnimationCompat>
+                    ): WindowInsetsCompat {
+                        if (smoothPadding) {
+                            formatInsets(insets, RelativePadding(initialPadding))
+                        }
+                        return insets
                     }
-                    return insets
-                }
 
-                override fun onEnd(animation: WindowInsetsAnimationCompat) {
-                    inSmoothingPadding = false
-                    super.onEnd(animation)
-                }
+                    override fun onEnd(animation: WindowInsetsAnimationCompat) {
+                        inSmoothingPadding = false
+                        super.onEnd(animation)
+                    }
 
-                override fun onPrepare(animation: WindowInsetsAnimationCompat) {
-                    inSmoothingPadding = smoothPadding
-                    super.onPrepare(animation)
-                }
-            })
-
+                    override fun onPrepare(animation: WindowInsetsAnimationCompat) {
+                        inSmoothingPadding = smoothPadding
+                        super.onPrepare(animation)
+                    }
+                })
+        }
         if (ViewCompat.isAttachedToWindow(view)) {
             ViewCompat.requestApplyInsets(view)
         } else {
