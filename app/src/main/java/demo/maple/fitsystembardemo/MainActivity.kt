@@ -7,13 +7,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import com.xiaobin.fitsystembar.FitSystemBarHelper
 import com.xiaobin.fitsystembar.FitSystemBarHelper.Companion.fitSystemBarHelper
 import com.xiaobin.fitsystembar.setSystemBarTheme
 import com.xiaobin.fitsystembar.showNavigationBar
 import com.xiaobin.fitsystembar.showStatusBar
-import com.xiaobin.fitsystembar.showSystemBar
 import demo.maple.fitsystembardemo.databinding.ActivityMainBinding
 
 /**
@@ -47,6 +47,7 @@ class MainActivity : AppCompatActivity() {
                 FitSystemBarHelper.Orientation.Bottom -> false
             }
         }
+        binding.llButtons2.isVisible = Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
         binding.btnSystemBarShow.setOnClickListener {
             showSystemBar(true)
         }

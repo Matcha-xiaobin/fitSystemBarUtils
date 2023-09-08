@@ -16,7 +16,7 @@
             android:id="@+id/titleBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/design_default_color_primary"
+            android:background="#131415"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
@@ -61,7 +61,6 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_marginVertical="12dp"
                     android:background="#159595"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -192,7 +191,7 @@
                     android:id="@+id/ll_buttons5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="24dp"
+                    android:layout_marginBottom="12dp"
                     android:gravity="center_horizontal"
                     android:orientation="horizontal"
                     app:layout_constrainedWidth="true"
@@ -222,7 +221,7 @@
             android:id="@+id/navigationBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/design_default_color_primary"
+            android:background="#131415"
             app:layout_constraintBottom_toBottomOf="parent">
 
             <androidx.appcompat.widget.AppCompatEditText

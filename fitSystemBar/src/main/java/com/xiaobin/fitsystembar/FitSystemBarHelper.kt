@@ -256,7 +256,8 @@ class FitSystemBarHelper(
         val naviBar = if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
             suv and View.SYSTEM_UI_FLAG_HIDE_NAVIGATION == 0
         } else true
-        if (naviBar &&
+        if (
+            naviBar &&
             (insetsCompat.isVisible(WindowInsetsCompat.Type.ime())
                     || insetsCompat.isVisible(WindowInsetsCompat.Type.navigationBars()))
         ) {
