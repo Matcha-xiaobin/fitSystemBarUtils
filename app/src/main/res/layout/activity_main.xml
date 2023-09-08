@@ -139,7 +139,7 @@
                 android:gravity="center_horizontal"
                 android:orientation="horizontal"
                 app:layout_constrainedWidth="true"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/ll_buttons4"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
 
@@ -154,6 +154,58 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="隐藏系统栏" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_buttons4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toTopOf="@id/ll_buttons5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_statusBarShow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="显示状态栏" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_statusBarHide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="隐藏状态栏" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_buttons5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_naviBarShow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="显示导航栏" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_naviBarHide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="隐藏导航栏" />
 
             </LinearLayout>
 

@@ -1,11 +1,14 @@
 package com.xiaobin.fitsystembar
 
+import android.app.Activity
+import android.os.Build
 import android.util.Log
 import android.view.View
 import android.view.View.OnAttachStateChangeListener
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsAnimationCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.databinding.BindingAdapter
 import kotlin.math.max
 
@@ -49,7 +52,7 @@ class FitSystemBarHelper(
     var smoothPadding: Boolean = true
 
     //是否需要打印日志
-    var debug = false
+    var debug = true
 
     enum class Orientation {
         Start, Top, End, Bottom
@@ -241,12 +244,24 @@ class FitSystemBarHelper(
         systemWindowInsetLeft = systemBars.left
         systemWindowInsetRight = systemBars.right
 
-        if (insetsCompat.isVisible(WindowInsetsCompat.Type.ime())
-            || insetsCompat.isVisible(WindowInsetsCompat.Type.navigationBars())
+        //对api低于30的设备，做额外判断，api 30+的不需要这个
+        val suv = view.rootView.windowSystemUiVisibility
+        val statusBar = if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
+            suv and View.SYSTEM_UI_FLAG_FULLSCREEN == 0
+        } else true
+        val naviBar = if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
+            suv and View.SYSTEM_UI_FLAG_HIDE_NAVIGATION == 0
+        } else true
+        if (naviBar &&
+            (insetsCompat.isVisible(WindowInsetsCompat.Type.ime())
+                    || insetsCompat.isVisible(WindowInsetsCompat.Type.navigationBars()))
         ) {
             systemWindowInsetBottom = systemBars.bottom
         }
-        if (insetsCompat.isVisible(WindowInsetsCompat.Type.statusBars())) {
+        if (
+            statusBar &&
+            insetsCompat.isVisible(WindowInsetsCompat.Type.statusBars())
+        ) {
             systemWindowInsetTop = systemBars.top
         }
 
@@ -288,7 +303,7 @@ class FitSystemBarHelper(
         )
     }
 
-    private fun log(content: String) {
+    private fun log(content: Any) {
         if (debug) {
             Log.d(TAG, "log: $content")
         }

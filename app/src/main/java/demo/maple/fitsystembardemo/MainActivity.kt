@@ -10,6 +10,9 @@ import androidx.core.view.WindowInsetsControllerCompat
 import androidx.databinding.DataBindingUtil
 import com.xiaobin.fitsystembar.FitSystemBarHelper
 import com.xiaobin.fitsystembar.FitSystemBarHelper.Companion.fitSystemBarHelper
+import com.xiaobin.fitsystembar.showNavigationBar
+import com.xiaobin.fitsystembar.showStatusBar
+import com.xiaobin.fitsystembar.showSystemBar
 import demo.maple.fitsystembardemo.databinding.ActivityMainBinding
 
 /**
@@ -48,6 +51,18 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnSystemBarHide.setOnClickListener {
             showSystemBar(false)
+        }
+        binding.btnStatusBarShow.setOnClickListener {
+            window.showStatusBar(true)
+        }
+        binding.btnStatusBarHide.setOnClickListener {
+            window.showStatusBar(false)
+        }
+        binding.btnNaviBarShow.setOnClickListener {
+            window.showNavigationBar(true)
+        }
+        binding.btnNaviBarHide.setOnClickListener {
+            window.showNavigationBar(false)
         }
         binding.btnSystemCutOut.setOnClickListener {
             cutOutSet(true)

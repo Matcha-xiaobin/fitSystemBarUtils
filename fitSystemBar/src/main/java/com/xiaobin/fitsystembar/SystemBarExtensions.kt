@@ -81,7 +81,7 @@ fun Window.showSystemBar(
  * 控制状态栏显隐
  * @param behavior 参考 showSystemBar 的描述
  */
-fun Window.setStatusBarVisibility(
+fun Window.showStatusBar(
     show: Boolean,
     behavior: Int = BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
 ) {
@@ -98,7 +98,7 @@ fun Window.setStatusBarVisibility(
  * 控制导航栏显隐
  * @param behavior 参考 showSystemBar 的描述
  */
-fun Window.setNavigationBarVisibility(
+fun Window.showNavigationBar(
     show: Boolean,
     behavior: Int = BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
 ) {
