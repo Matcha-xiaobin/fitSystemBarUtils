@@ -34,7 +34,7 @@ Step 2. Add the dependency
 
 ### 目前BUG：
 突然发现在Android 10系统上出现了系统栏明明隐藏了，高度却没有变成0的问题，android 11+似乎没问题。
-未完全测试。
+目前已修复，并且禁用了低于android 11的动画效果，实际上ViewCompat中帮我们实现了低于android 11的设备的动画效果，但是存在问题。
 
 ### 在代码中使用：
 这个工具本质是把系统分发的insets属性拿出来用了一下，可以参考下google的 BottomNavigationView 底部导航 的代码，里面也用到了这个原理。

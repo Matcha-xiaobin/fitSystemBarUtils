@@ -177,8 +177,13 @@ class FitSystemBarHelper(
             formatInsets(insets, RelativePadding(initialPadding))
             insets
         }
+        //虽然ViewCompat中帮我们实现了低于 R 的版本也能走...输入法动画，但会导致其它的一些问题
+        //因为低于R的设备上，WindowInsets中的系统栏insets获取到的isVisible将会始终为true
+        //导致获取的高度在 隐藏了系统栏 的情况下，依然等于 可见状态下 的系统栏高度
+        //然后再旋转屏幕之后，并不能正确的将设置了底部虚拟导航键的高度的padding值没有被清掉
+        //所以在低于api 30的设备上干脆禁用好了
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            //带平滑变化的,虽然ViewCompat中帮我们实现了低于 R 的版本也能走动画，但实际上存在一些问题，所以干脆禁用好了
+            //带平滑变化的
             ViewCompat.setWindowInsetsAnimationCallback(
                 view,
                 object : WindowInsetsAnimationCompat.Callback(DISPATCH_MODE_CONTINUE_ON_SUBTREE) {
